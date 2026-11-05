@@ -1,6 +1,6 @@
 # nixos-config
 
-NixOS flake for my ThinkPad P15v (Intel, no dGPU). Lives in `~/nixos-config`, no sudo for git.
+NixOS flake for my ThinkPad P15v (Intel, no dGPU). Lives in `~/nixos-config`, no sudo for git. Shell: fish, `n` = `nvim`.
 
 ## Files
 
@@ -28,15 +28,26 @@ Try a change without making it the boot default: `nh os test`.
 
 ## Update (every week or two)
 
+Runs `nixos-unstable` (rolling): this updates everything (kernel, KDE, nvim, ...), no release upgrades.
+
 ```sh
 nh os switch -u             # update flake.lock + rebuild
 git commit -am "update" && git push
 ```
 
-## Upgrade NixOS release (every ~6 months, May/Nov)
+Update broke or won't build? Undo it and retry in a few days:
 
-Change `nixos-26.05` in `flake.nix` to the new release, then `nh os switch -u`.
+```sh
+git checkout HEAD~1 -- flake.lock && nh os switch
+```
+
+Back to stable: set `nixpkgs.url` in `flake.nix` to `github:NixOS/nixpkgs/nixos-26.05`, then `nh os switch -u`.
 Never change `system.stateVersion`.
+
+Neovim plugins and language servers are not managed by Nix:
+
+- Plugins: `:Lazy update` in nvim, then commit `dotfiles/nvim/lazy-lock.json`
+- Language servers: `:Mason`, then `U`
 
 ## Something broke
 
