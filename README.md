@@ -5,7 +5,7 @@ NixOS flake for my ThinkPad P15v (Intel, no dGPU). Lives in `~/nixos-config`, no
 ## Files
 
 | File | What |
-|------|------|
+| ------ | ------ |
 | `flake.nix` | Inputs (nixpkgs version, nixos-hardware, otpdash) and hardware modules |
 | `configuration.nix` | Everything else: packages, desktop, users, services |
 | `hardware-configuration.nix` | Generated disks/kernel modules. Don't edit; regenerate only if partitions change |
@@ -22,7 +22,7 @@ git commit -am "add foo" && git push
 
 New files must be `git add`ed before building, flakes ignore untracked files.
 
-Find packages/options: https://search.nixos.org
+Find packages/options: <https://search.nixos.org>
 
 Try a change without making it the boot default: `nh os test`.
 

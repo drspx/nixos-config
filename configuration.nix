@@ -102,10 +102,12 @@
 
   # Dotfiles live in ./dotfiles and are symlinked into ~/.config (edits apply instantly, no rebuild).
   # "L" never overwrites: move an existing ~/.config/<app> into ./dotfiles first.
-  systemd.tmpfiles.rules = map (app: "L /home/drspx/.config/${app} - - - - /home/drspx/nixos-config/dotfiles/${app}") [
-    "wezterm"
-    "nvim"
-  ];
+  systemd.tmpfiles.rules =
+    map (app: "L /home/drspx/.config/${app} - - - - /home/drspx/nixos-config/dotfiles/${app}")
+      [
+        "wezterm"
+        "nvim"
+      ];
 
   programs = {
     fish.enable = true;
