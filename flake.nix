@@ -1,7 +1,7 @@
 {
   inputs = {
-    # Bump to the next release (e.g. nixos-26.11) when it's out, then `nix flake update`.
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    # Rolling release. Back to stable: "github:NixOS/nixpkgs/nixos-26.05", then `nh os switch -u`.
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     otpdash = {
       url = "github:drspx/otpdash";
