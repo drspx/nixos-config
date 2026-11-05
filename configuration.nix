@@ -56,7 +56,6 @@
       Experimental = true;
       FastConnectable = true;
     };
-    settings.Policy.AutoEnable = true;
   };
 
   # ThinkPad BIOS/firmware updates: `fwupdmgr refresh && fwupdmgr update`
