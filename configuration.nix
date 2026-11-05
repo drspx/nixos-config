@@ -84,6 +84,9 @@
       python3
       nodejs
       rustup
+      jdk # LazyVim java extra (jdtls)
+      pkl
+      typst
 
       # gui
       wezterm
@@ -107,7 +110,13 @@
   programs = {
     fish.enable = true;
     firefox.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      config.user = {
+        name = "drspx";
+        email = "76571284+drspx@users.noreply.github.com";
+      };
+    };
     nix-ld.enable = true;
     neovim = {
       enable = true;
