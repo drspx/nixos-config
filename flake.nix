@@ -18,8 +18,8 @@
           ./configuration.nix
           # Intel-only P15v (no dGPU): generic modules; the p15v-gen3 profile forces NVIDIA.
           nixos-hardware.nixosModules.lenovo-thinkpad
-          nixos-hardware.nixosModules.common-cpu-intel
-          nixos-hardware.nixosModules.common-pc-laptop
+          # cpu-only: full common-cpu-intel adds OpenCL (intel-compute-runtime) = huge compiler pull
+          nixos-hardware.nixosModules.common-cpu-intel-cpu-only
           nixos-hardware.nixosModules.common-pc-ssd
         ];
       };
