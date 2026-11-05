@@ -64,13 +64,48 @@
   users.users.drspx = {
     isNormalUser = true;
     description = "drspx";
+    shell = pkgs.fish;
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
+    # My tools: only on my PATH
+    packages = with pkgs; [
+      # nix tooling
+      statix
+      nil
+      nixfmt
+
+      # dev
+      clang
+      tree-sitter # LazyVim's treesitter needs the CLI
+      lazygit
+      lsd
+      python3
+      nodejs
+      rustup
+
+      # gui
+      wezterm
+      thunderbird
+      kdePackages.kate
+      kdePackages.partitionmanager
+
+      (callPackage "${inputs.otpdash}/package.nix" { })
+    ];
   };
 
+  environment.shellAliases.n = "nvim";
+
+  # Dotfiles live in ./dotfiles and are symlinked into ~/.config (edits apply instantly, no rebuild).
+  # "L" never overwrites: move an existing ~/.config/<app> into ./dotfiles first.
+  systemd.tmpfiles.rules = map (app: "L /home/drspx/.config/${app} - - - - /home/drspx/nixos-config/dotfiles/${app}") [
+    "wezterm"
+    "nvim"
+  ];
+
   programs = {
+    fish.enable = true;
     firefox.enable = true;
     git.enable = true;
     nix-ld.enable = true;
@@ -97,37 +132,20 @@
 
   fonts.packages = [ pkgs.nerd-fonts.jetbrains-mono ];
 
+  # Basics for every user (and root); neovim + git come from programs.* above
   environment.systemPackages = with pkgs; [
-    # nix tooling
-    statix
-    nil
-    nixfmt
-
-    # cli
-    clang
-    fd
-    ripgrep
-    sysstat
-    lsd
-    tree
-    unzip
+    btop
+    sysstat # iostat, mpstat, sar
     curl
     wget
-    lazygit
-    btop
-    fish
-    python3
-    nodejs
-    rustup
+    unzip
+    tree
+    fd
+    ripgrep
     wl-clipboard
-
-    # gui
-    wezterm
-    thunderbird
-    kdePackages.kate
-    kdePackages.partitionmanager
-
-    (callPackage "${inputs.otpdash}/package.nix" { })
+    pciutils # lspci
+    usbutils # lsusb
+    dnsutils # dig
   ];
 
   # Never change this after install. It is NOT the NixOS version you run.
