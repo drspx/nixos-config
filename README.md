@@ -7,7 +7,12 @@ NixOS flake for my ThinkPad P15v (Intel, no dGPU). Lives in `~/nixos-config`, no
 | File | What |
 | ------ | ------ |
 | `flake.nix` | Inputs (nixpkgs version, nixos-hardware, otpdash) and hardware modules |
-| `configuration.nix` | Everything else: packages, desktop, users, services |
+| `configuration.nix` | Imports the modules below + `stateVersion` |
+| `modules/system.nix` | Boot, kernel, network, locale, nix settings, `nh`, firmware |
+| `modules/desktop.nix` | KDE Plasma, graphics, sound, bluetooth, printing, fonts |
+| `modules/apps.nix` | System-wide apps (Steam, Heroic, Bottles, VLC, Firefox, AppImage support) + CLI basics |
+| `modules/docker.nix` | Docker engine, compose, Podman Desktop (GUI) |
+| `modules/user.nix` | My user, personal packages, git, fish, neovim, dotfiles symlinks |
 | `hardware-configuration.nix` | Generated disks/kernel modules. Don't edit; regenerate only if partitions change |
 | `flake.lock` | Pinned versions. Commit it |
 
@@ -15,7 +20,7 @@ NixOS flake for my ThinkPad P15v (Intel, no dGPU). Lives in `~/nixos-config`, no
 
 ```sh
 cd ~/nixos-config
-nvim configuration.nix      # e.g. add a package to environment.systemPackages
+nvim modules/apps.nix       # e.g. add a package to environment.systemPackages
 nh os switch                # build + activate (asks for sudo itself)
 git commit -am "add foo" && git push
 ```
@@ -52,7 +57,7 @@ Neovim plugins and language servers are not managed by Nix:
 ## Something broke
 
 - Reboot and pick an older generation in the boot menu, or
-- `git checkout <good-commit> -- flake.lock configuration.nix && nh os switch`
+- `git checkout <good-commit> -- flake.lock configuration.nix modules && nh os switch`
 
 ## Dotfiles
 
@@ -61,7 +66,7 @@ Edit them in place, no rebuild needed. To add an app:
 
 ```sh
 mv ~/.config/fish ~/nixos-config/dotfiles/fish   # move existing config into the repo
-# add "fish" to the list in configuration.nix
+# add "fish" to the list in modules/user.nix
 nh os switch && git add -A && git commit -m "fish config"
 ```
 
