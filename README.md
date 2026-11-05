@@ -43,6 +43,17 @@ Never change `system.stateVersion`.
 - Reboot and pick an older generation in the boot menu, or
 - `git checkout <good-commit> -- flake.lock configuration.nix && nh os switch`
 
+## Dotfiles
+
+App configs live in `dotfiles/<app>` and are symlinked to `~/.config/<app>` (list in `systemd.tmpfiles.rules`).
+Edit them in place, no rebuild needed. To add an app:
+
+```sh
+mv ~/.config/fish ~/nixos-config/dotfiles/fish   # move existing config into the repo
+# add "fish" to the list in configuration.nix
+nh os switch && git add -A && git commit -m "fish config"
+```
+
 ## Cleanup
 
 Automatic weekly via `programs.nh.clean` (keeps last 5 generations / 7 days).
