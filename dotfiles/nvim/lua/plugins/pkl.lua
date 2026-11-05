@@ -8,7 +8,7 @@ return {
   init = function()
     vim.g.pkl_neovim = {
       start_command = { "pkl-lsp" },
-      pkl_cli_path = "/opt/homebrew/bin/pkl",
+      pkl_cli_path = vim.fn.exepath("pkl"), -- works on mac (brew) and nixos
     }
   end,
 }
