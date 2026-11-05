@@ -36,6 +36,9 @@
   services.desktopManager.plasma6.enable = true;
   services.printing.enable = true;
 
+  # Intel iGPU hardware video decoding (VA-API)
+  hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
+
   # Sound
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
