@@ -34,10 +34,15 @@
       telegram-desktop
       kdePackages.kate
       kdePackages.partitionmanager
+      vlc
+      # gaming
       heroic
       bottles
+      protonup-qt
 
       (callPackage "${inputs.otpdash}/package.nix" { })
+
+      (kdePackages.callPackage ./kgamma2.nix { })
     ];
   };
 
@@ -62,6 +67,17 @@
       #   "mailnews.default_sort_order" = 2;
       # };
     };
+    firefox.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+    };
+
+    nix-ld.enable = true;
+    # for gaming
+    # gamemode.enable = true;
+    # gamescope.enable = true;
+
   };
 
   environment.shellAliases.n = "nvim";
