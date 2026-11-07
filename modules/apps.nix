@@ -14,8 +14,6 @@
   };
 
   environment.systemPackages = with pkgs; [
-    bottles
-    heroic
     vlc
     btop
     sysstat # iostat, mpstat, sar

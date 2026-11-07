@@ -35,6 +35,8 @@
       telegram-desktop
       kdePackages.kate
       kdePackages.partitionmanager
+      heroic
+      bottles
 
       (callPackage "${inputs.otpdash}/package.nix" { })
     ];
