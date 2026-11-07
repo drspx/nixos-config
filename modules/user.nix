@@ -31,7 +31,6 @@
 
       # gui
       wezterm
-      thunderbird
       telegram-desktop
       kdePackages.kate
       kdePackages.partitionmanager
@@ -54,6 +53,14 @@
     neovim = {
       enable = true;
       defaultEditor = true;
+    };
+    thunderbird = {
+      enable = true;
+      # Optional extras:
+      # languagePacks = [ "da" "en-US" ];
+      # preferences = {
+      #   "mailnews.default_sort_order" = 2;
+      # };
     };
   };
 

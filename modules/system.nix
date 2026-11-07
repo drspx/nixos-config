@@ -37,11 +37,14 @@
     auto-optimise-store = true;
   };
 
-  programs.nh = {
-    enable = true;
-    flake = "/home/drspx/nixos-config";
-    clean.enable = true; # weekly cleanup of old generations
-    clean.extraArgs = "--keep 5 --keep-since 7d";
+  programs = {
+    nh = {
+      enable = true;
+      flake = "/home/drspx/nixos-config";
+      clean.enable = true; # weekly cleanup of old generations
+      clean.extraArgs = "--keep 5 --keep-since 7d";
+    };
+    usbtop.enable = true;
   };
 
   # ThinkPad BIOS/firmware updates: `fwupdmgr refresh && fwupdmgr update`
