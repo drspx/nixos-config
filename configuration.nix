@@ -6,6 +6,7 @@
     ./modules/apps.nix
     ./modules/user.nix
     ./modules/docker.nix
+    ./modules/exclude.nix
   ];
 
   # Never change this after install. It is NOT the NixOS version you run.
