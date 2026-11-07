@@ -8,7 +8,7 @@ config.font = wezterm.font("JetBrains Mono", { weight = "Regular" })
 config.font_size = 10.0
 config.window_background_opacity = 0.85
 config.enable_tab_bar = false
-config.window_decorations = "NONE"
+-- config.window_decorations = "NONE"
 config.window_padding = {
 	left = 5,
 	right = 5,
