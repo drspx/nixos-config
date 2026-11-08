@@ -19,6 +19,9 @@
 
       # dev
       clang
+      gcc # linker for rustup-managed toolchains
+      pkg-config
+      openssl
       tree-sitter # LazyVim's treesitter needs the CLI
       lazygit
       lsd
@@ -47,7 +50,13 @@
   };
 
   programs = {
-    fish.enable = true;
+    fish = {
+      enable = true;
+      # rustup installs cargo and toolchain binaries here, outside the Nix store.
+      interactiveShellInit = ''
+        fish_add_path --prepend "$HOME/.cargo/bin"
+      '';
+    };
     git = {
       enable = true;
       config.user = {
