@@ -31,6 +31,19 @@ Find packages/options: <https://search.nixos.org>
 
 Try a change without making it the boot default: `nh os test`.
 
+## Rust
+
+Rust is managed by `rustup`; Nix provides the native linker and common build dependencies. After applying the configuration, install/select a toolchain:
+
+```sh
+rustup toolchain install stable
+rustup default stable
+rustc --version
+cargo --version
+```
+
+`~/.cargo/bin` is added to Fish's interactive PATH so Cargo-installed commands are available. For Rust projects with native dependencies, add those dependencies to the project's Nix development shell; `pkg-config` and OpenSSL are available system-wide as a common baseline. See the [NixOS Rust wiki](https://wiki.nixos.org/wiki/Rust).
+
 ## Update (every week or two)
 
 Runs `nixos-unstable` (rolling): this updates everything (kernel, KDE, nvim, ...), no release upgrades.
