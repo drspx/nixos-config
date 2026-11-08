@@ -19,15 +19,19 @@
 
       # dev
       clang
-      gcc # linker for rustup-managed toolchains
+      gcc # linker for Rust builds
       pkg-config
       openssl
+      rustc
+      cargo
+      rustfmt
+      clippy
+      rust-analyzer
       tree-sitter # LazyVim's treesitter needs the CLI
       lazygit
       lsd
       python3
       nodejs
-      rustup
       jdk # LazyVim java extra (jdtls)
       pkl
       typst
@@ -50,13 +54,7 @@
   };
 
   programs = {
-    fish = {
-      enable = true;
-      # rustup installs cargo and toolchain binaries here, outside the Nix store.
-      interactiveShellInit = ''
-        fish_add_path --prepend "$HOME/.cargo/bin"
-      '';
-    };
+    fish.enable = true;
     git = {
       enable = true;
       config.user = {
