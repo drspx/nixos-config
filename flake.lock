@@ -50,11 +50,11 @@
     "otpdash": {
       "flake": false,
       "locked": {
-        "lastModified": 1794164209,
-        "narHash": "sha256-l1u/edE1taV5D1DGk/+ZQUm2QeQgMRLKtgtgMbQ8XRE=",
+        "lastModified": 1794166883,
+        "narHash": "sha256-e62N+0QAub8YxoJlJsVYchs8Xyeggh+WIPFSZypgPrM=",
         "owner": "drspx",
         "repo": "otpdash",
-        "rev": "554aa02b47d3510270467956a5ad0f230a5b546f",
+        "rev": "baf250e1dc00f4ae2911adafc613ce1356f0bb46",
         "type": "github"
       },
       "original": {
