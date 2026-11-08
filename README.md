@@ -33,16 +33,15 @@ Try a change without making it the boot default: `nh os test`.
 
 ## Rust
 
-Rust is managed by `rustup`; Nix provides the native linker and common build dependencies. After applying the configuration, install/select a toolchain:
+Rust tools are installed and updated through Nix (`rustc`, `cargo`, `rustfmt`, `clippy`, and `rust-analyzer`); no rustup is used. Check the installed tools with:
 
 ```sh
-rustup toolchain install stable
-rustup default stable
 rustc --version
 cargo --version
+rust-analyzer --version
 ```
 
-`~/.cargo/bin` is added to Fish's interactive PATH so Cargo-installed commands are available. For Rust projects with native dependencies, add those dependencies to the project's Nix development shell; `pkg-config` and OpenSSL are available system-wide as a common baseline. See the [NixOS Rust wiki](https://wiki.nixos.org/wiki/Rust).
+The Nix configuration also provides GCC, pkg-config, and OpenSSL for common native build requirements. For projects needing additional native libraries, add them to the project's Nix development shell. See the [NixOS Rust wiki](https://wiki.nixos.org/wiki/Rust).
 
 ## Update (every week or two)
 
