@@ -3,6 +3,10 @@
     # Rolling release. Back to stable: "github:NixOS/nixpkgs/nixos-26.05", then `nh os switch -u`.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     otpdash = {
       url = "github:drspx/otpdash";
       flake = false;
@@ -10,11 +14,14 @@
   };
 
   outputs =
-    { nixpkgs, nixos-hardware, ... }@inputs:
+    { nixpkgs, nixos-hardware, rust-overlay, ... }@inputs:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          ({ ... }: {
+            nixpkgs.overlays = [ rust-overlay.overlays.default ];
+          })
           ./configuration.nix
           # Intel-only P15v (no dGPU): generic modules; the p15v-gen3 profile forces NVIDIA.
           nixos-hardware.nixosModules.lenovo-thinkpad
