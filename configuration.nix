@@ -3,7 +3,6 @@
     ./hardware-configuration.nix
     ./modules/system.nix
     ./modules/desktop.nix
-    ./modules/apps.nix
     ./modules/user.nix
     ./modules/docker.nix
     ./modules/exclude.nix

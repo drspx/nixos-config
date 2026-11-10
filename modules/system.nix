@@ -45,7 +45,28 @@
       clean.extraArgs = "--keep 5 --keep-since 7d";
     };
     usbtop.enable = true;
+    # Run AppImages directly: chmod +x foo.AppImage && ./foo.AppImage
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
   };
+
+  environment.systemPackages = with pkgs; [
+    vim
+    btop
+    sysstat # iostat, mpstat, sar
+    curl
+    wget
+    unzip
+    tree
+    fd
+    ripgrep
+    wl-clipboard
+    pciutils # lspci
+    usbutils # lsusb
+    dnsutils # dig
+  ];
 
   # ThinkPad BIOS/firmware updates: `fwupdmgr refresh && fwupdmgr update`
   services.fwupd.enable = true;

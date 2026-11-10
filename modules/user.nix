@@ -42,9 +42,11 @@
       kdePackages.kate
       kdePackages.partitionmanager
       vlc
+
       # gaming
       heroic
       bottles
+      lutris
       protonup-qt
 
       (callPackage "${inputs.otpdash}/package.nix" { })
@@ -69,7 +71,10 @@
     thunderbird = {
       enable = true;
       # Optional extras:
-      # languagePacks = [ "da" "en-US" ];
+      languagePacks = [
+        "da"
+        "en-US"
+      ];
       # preferences = {
       #   "mailnews.default_sort_order" = 2;
       # };
