@@ -2,14 +2,15 @@
 { pkgs, ... }:
 
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernel.sysctl = {
-    "vm.dirty_background_bytes" = 16777216;
-    "vm.dirty_bytes" = 50331648;
+  boot = {
+    loader.systemd-boot.enable = true;
+    loader.efi.canTouchEfiVariables = true;
+    kernelPackages = pkgs.linuxPackages_latest;
+    kernel.sysctl = {
+      "vm.dirty_background_bytes" = 16777216;
+      "vm.dirty_bytes" = 50331648;
+    };
   };
-
   networking.hostName = "nixos"; # must match nixosConfigurations.<name> in flake.nix
   networking.networkmanager.enable = true;
 
@@ -68,16 +69,18 @@
     dnsutils # dig
   ];
 
-  # ThinkPad BIOS/firmware updates: `fwupdmgr refresh && fwupdmgr update`
-  services.fwupd.enable = true;
+  services = {
+    # ThinkPad BIOS/firmware updates: `fwupdmgr refresh && fwupdmgr update`
+    fwupd.enable = true;
 
-  services.xserver.enable = true;
-  services.xserver.xkb.layout = "dk";
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-  services.printing.enable = true;
+    xserver.enable = true;
+    xserver.xkb.layout = "dk";
+    displayManager.sddm.enable = true;
+    desktopManager.plasma6.enable = true;
+    printing.enable = true;
 
-  services.flatpak.enable = true;
+    flatpak.enable = true;
+  };
 
   # Intel iGPU hardware video decoding (VA-API)
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];
