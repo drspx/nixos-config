@@ -35,6 +35,7 @@
       jdk # LazyVim java extra (jdtls)
       pkl
       typst
+      fastfetch
 
       # gui
       wezterm
