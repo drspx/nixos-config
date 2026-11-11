@@ -16,7 +16,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
-          nixos-hardware.nixosModules.lenovo-thinkpad-p15v
+          (nixos-hardware + "/lenovo/thinkpad/p15v")
           nixos-hardware.nixosModules.common-cpu-intel-cpu-only
         ];
       };
