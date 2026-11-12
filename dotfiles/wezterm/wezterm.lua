@@ -6,7 +6,7 @@ config.default_prog = { "fish" }
 config.color_scheme = "Catppuccin Mocha"
 config.font = wezterm.font("JetBrains Mono", { weight = "Regular" })
 config.font_size = 10.0
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.92
 config.enable_tab_bar = false
 -- config.window_decorations = "NONE"
 config.window_padding = {
