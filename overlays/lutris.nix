@@ -20,6 +20,10 @@
               fetchSubmodules = true;
               hash = "sha256-LdgYje8bsmkQu6Qduy+Sf/e1aGdMmci7aCrwYExnDTk=";
             };
+            # This nixpkgs patch targets the older Lutris source and no longer applies.
+            patches = prev.lib.filter
+              (patch: !(prev.lib.hasSuffix "fix-GnomeDesktop-AttributeError.patch" (toString patch)))
+              (old.patches or [ ]);
           })
       );
 })
