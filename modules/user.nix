@@ -75,9 +75,34 @@
         "da"
         "en-US"
       ];
-      # preferences = {
-      #   "mailnews.default_sort_order" = 2;
-      # };
+      policies = {
+        Preferences = {
+          "intl.regional_prefs.use_os_locales" = {
+            Value = true;
+            Status = "default";
+          };
+          "intl.date_time.pattern_override.time_short" = {
+            Value = "HH:mm";
+            Status = "default";
+          };
+          "calendar.week.start" = {
+            Value = 1;
+            Status = "default";
+          };
+          "calendar.week.d0sundaysoff" = {
+            Value = true;
+            Status = "default";
+          };
+          "calendar.week.d1mondaysoff" = {
+            Value = false;
+            Status = "default";
+          };
+          "calendar.view.isoWeekNumbering" = {
+            Value = true;
+            Status = "default";
+          };
+        };
+      };
     };
     firefox.enable = true;
     steam = {
