@@ -43,7 +43,7 @@
       enable = true;
       flake = "/home/drspx/nixos-config";
       clean.enable = true; # weekly cleanup of old generations
-      clean.extraArgs = "--keep 5 --keep-since 7d";
+      clean.extraArgs = "--keep 3";
     };
     usbtop.enable = true;
     # Run AppImages directly: chmod +x foo.AppImage && ./foo.AppImage
