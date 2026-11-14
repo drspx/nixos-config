@@ -46,7 +46,6 @@
 
       # gaming
       heroic
-      bottles
       lutris
       protonup-qt
 
