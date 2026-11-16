@@ -118,19 +118,17 @@ exit
 
 Fresh install = no old state, so set `system.stateVersion` to the value in `/etc/nixos/configuration.nix` (the only time it's safe to change).
 
+## To reinstall, first do a backup
 
-
-## To reinstall, first do a backup. 
 ```sh
 nix-shell -p rsync
 rsync -aHAX --info=progress2 --exclude='.cache' ~/ raspberrypi.local:/mnt/backup/home/
 ```
 
-Then do reinstall and install packages again. 
+Then do reinstall and install packages again.
 
-to retrieve all the packages, simply copy the files back into the home folder. 
+to retrieve all the packages, simply copy the files back into the home folder.
+
 ```sh
 rsync -aHAX --info=progress2 raspberrypi.local:/mnt/backup/home/ ~/
 ```
-
-
