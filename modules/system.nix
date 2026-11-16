@@ -11,6 +11,9 @@
       "vm.dirty_bytes" = 50331648;
     };
   };
+  # Compressed swap in RAM; no swap partition exists
+  zramSwap.enable = true;
+
   networking.hostName = "nixos"; # must match nixosConfigurations.<name> in flake.nix
   networking.networkmanager.enable = true;
 
@@ -81,6 +84,10 @@
 
     flatpak.enable = true;
   };
+
+  # Fingerprint for lock screen + sudo. Boot login (SDDM) stays password-only so KWallet unlocks.
+  services.fprintd.enable = true;
+  security.pam.services.sddm.fprintAuth = false;
 
   # Intel iGPU hardware video decoding (VA-API)
   hardware.graphics.extraPackages = [ pkgs.intel-media-driver ];

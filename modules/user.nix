@@ -51,7 +51,7 @@
 
       (callPackage "${inputs.otpdash}/package.nix" { })
 
-      (kdePackages.callPackage ./kgamma2.nix { })
+      (kdePackages.callPackage ./kgamma.nix { })
     ];
   };
 

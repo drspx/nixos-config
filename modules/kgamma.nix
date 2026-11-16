@@ -18,13 +18,13 @@
 
 stdenv.mkDerivation {
   pname = "kgamma2";
-  version = "unstable-2026-08-13";
+  version = "unstable-2026-08-07";
 
   src = fetchFromGitLab {
     domain = "invent.kde.org";
     owner = "davidedmundson";
     repo = "kgamma2";
-    rev = "master";
+    rev = "beaa5f2885a8ffde9546012b7be7cdb6a5dffa58"; # master on 2026-08-07
     hash = "sha256-WskM8b/11B5pITOEsCvhGKSgGZH3cNXboHU199Mfjmo=";
   };
 
