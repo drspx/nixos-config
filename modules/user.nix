@@ -36,6 +36,7 @@
       pkl
       typst
       fastfetch
+      rsync
 
       # gui
       wezterm
