@@ -32,7 +32,7 @@
       lsd
       python3
       nodejs
-      jdk # LazyVim java extra (jdtls)
+      jdk25
       pkl
       typst
       fastfetch
