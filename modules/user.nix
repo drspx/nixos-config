@@ -44,8 +44,6 @@
       kdePackages.kate
       kdePackages.partitionmanager
       vlc
-      # Experimental Nix package; Flatpak remains available as a fallback.
-      inputs.craft-launcher.packages.${pkgs.system}.default
 
       # gaming
       heroic

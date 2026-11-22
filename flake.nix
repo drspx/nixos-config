@@ -3,10 +3,6 @@
     # Rolling release. Back to stable: "github:NixOS/nixpkgs/nixos-26.05", then `nh os switch -u`.
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    craft-launcher = {
-      url = "github:storytold/craft-launcher";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     otpdash = {
       url = "github:drspx/otpdash";
       flake = false;
