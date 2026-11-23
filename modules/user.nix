@@ -42,6 +42,7 @@
       wezterm
       telegram-desktop
       vlc
+      qalculate-qt
 
       # kde
       kdePackages.ktorrent
