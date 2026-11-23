@@ -41,9 +41,11 @@
       # gui
       wezterm
       telegram-desktop
-      kdePackages.kate
-      kdePackages.partitionmanager
       vlc
+
+      # kde
+      kdePackages.ktorrent
+      kdePackages.kate
 
       # gaming
       heroic
@@ -115,6 +117,8 @@
     # for gaming
     # gamemode.enable = true;
     # gamescope.enable = true;
+
+    partition-manager.enable = true;
 
   };
 
