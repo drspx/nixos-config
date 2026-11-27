@@ -43,6 +43,7 @@
       telegram-desktop
       vlc
       qalculate-qt
+      spotify
 
       # kde
       kdePackages.ktorrent
